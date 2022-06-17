@@ -1,28 +1,19 @@
-﻿using ShoppingListFinal.Services;
-using ShoppingListFinal.Models;
-using System;
-using System.Collections.ObjectModel;
+﻿using ShoppingListFinal.Models;
+using ShoppingListFinal.Services;
 using System.Threading.Tasks;
-using System.Windows.Input;
 using Xamarin.CommunityToolkit.ObjectModel;
-using Xamarin.Forms;
-using ShoppingListFinal.Views;
 
 namespace ShoppingListFinal.ViewModels
 {
     class SavedItemsViewModel : BaseViewModel
     {
-
         public ObservableRangeCollection<SavedItem> SavedItems { get; set; }
         public AsyncCommand AddCommand { get; }
         public AsyncCommand<SavedItem> RemoveCommand { get; }
         public AsyncCommand RefreshCommand { get; }
 
-
         public SavedItemsViewModel()
         {
-            Title = "Saved items";
-
             SavedItems = new ObservableRangeCollection<SavedItem>();
 
             AddCommand = new AsyncCommand(AddProductItem);

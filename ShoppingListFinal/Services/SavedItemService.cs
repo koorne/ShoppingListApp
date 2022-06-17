@@ -1,11 +1,9 @@
-﻿using System;
+﻿using ShoppingListFinal.Models;
+using SQLite;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Threading.Tasks;
-using SQLite;
 using Xamarin.Essentials;
-using ShoppingListFinal.Models;
 
 namespace ShoppingListFinal.Services
 {

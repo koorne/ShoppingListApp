@@ -1,9 +1,4 @@
 ﻿using ShoppingListFinal.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Xamarin.Forms;
-using ShoppingListFinal.Services;
 using System.Collections.ObjectModel;
 
 namespace ShoppingListFinal.ViewModels

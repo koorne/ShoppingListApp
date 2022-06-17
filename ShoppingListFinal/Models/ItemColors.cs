@@ -8,6 +8,5 @@ namespace ShoppingListFinal.Models
     {
         public string PublicName { get; set; }
         public string InternalName { get; set; }
-
     }
 }

@@ -1,16 +1,8 @@
-﻿using ShoppingListFinal.Models;
-using ShoppingListFinal.Services;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using Xamarin.CommunityToolkit.ObjectModel;
-using Xamarin.Forms;
+﻿using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace ShoppingListFinal.ViewModels
 {
     public class BaseViewModel : ObservableObject
-
     {
 
         bool isBusy = false;

@@ -104,14 +104,6 @@
                                     
                                     
                                 />
-
-                                <!--<ImageButton 
-                                Source="delete.png"
-                                Scale="0.5"
-                                Command="{Binding Path=BindingContext.RemoveProductCommand, Source={x:Reference ProductList}}"
-                                CommandParameter="{Binding .}"
-                             />.-->
-
                             </Grid>
                         </SwipeView>
                     </DataTemplate>
