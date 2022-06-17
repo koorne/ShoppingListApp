@@ -11,7 +11,6 @@ namespace ShoppingListFinal.Services
 {
     public static class ProductItemService
     {
-
         static SQLiteAsyncConnection db;
 
         static async Task Init()

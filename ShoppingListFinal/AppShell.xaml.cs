@@ -13,6 +13,7 @@ namespace ShoppingListFinal
             InitializeComponent();
             Routing.RegisterRoute(nameof(ProductListPage), typeof(ProductListPage));
             Routing.RegisterRoute(nameof(EditItemPage), typeof(EditItemPage));
+            Routing.RegisterRoute(nameof(SettingsPage), typeof(SettingsPage));
         }
     }
 }

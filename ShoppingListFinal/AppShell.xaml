@@ -105,7 +105,7 @@
                              Glyph="{StaticResource IconSettings}"
                              Color="{StaticResource Primary}"/>
         </FlyoutItem.Icon>
-        <ShellContent Route="EditItemPage" ContentTemplate="{DataTemplate local:EditItemPage}" />
+        <ShellContent Route="SettingsPage" ContentTemplate="{DataTemplate local:SettingsPage}" />
     </FlyoutItem>
 
 
