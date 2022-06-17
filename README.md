@@ -1,6 +1,6 @@
 # ShoppingListApp
 
-Basic test app that I'm building to learn Xamarin.Forms and improve my C# skills, and to finally have a shopping list app that works the exact same way I ideally find. 
+Basic app that I'm building to learn Xamarin.Forms and improve my C# skills, and to finally have a shopping list app that works the exact same way I ideally find. 
 
 It is far from done but the very principle of the app works: being a Shopping List Application. Within the next weeks I'll continue to update and polish it.
 
