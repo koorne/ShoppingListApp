@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShoppingListFinal.Views.ProductListPage"
+             xmlns:local="clr-namespace:ShoppingListFinal.ViewModels"  
+             xmlns:model="clr-namespace:ShoppingListFinal.Models"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:conv="clr-namespace:ShoppingListFinal.Converters"
+             Title="{xct:Translate MainTitle}"
+             BackgroundColor="{AppThemeBinding 
+                                  Dark={StaticResource WindowsBackgrondColorDark}, 
+                                  Light={StaticResource WindowsBackgroundColor}}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <conv:TextDecorationsConverter x:Key="BoolToObjectConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Padding="5">
+                <Entry
+            x:Name="InputField"
+            Text="{Binding NewProductInputValue}"
+            Placeholder="{xct:Translate ProductInput}"
+            ReturnCommand="{Binding AddCommand}"
+            Style="{StaticResource BaseEntry}"
+            xct:CornerRadiusEffect.CornerRadius="7"
+                />
+            </StackLayout>
+            <CollectionView 
+            x:Name="ProductList" 
+            ItemsSource="{Binding ProductItems}"
+            SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <SwipeView>
+                            <SwipeView.RightItems>
+                                <SwipeItems>
+
+                                    <SwipeItem  IsDestructive="True"
+                                            BackgroundColor="IndianRed"
+                                            Text="Delete"
+                                            Command="{Binding Path=BindingContext.RemoveCommand, Source={x:Reference ProductList}}"
+                                            CommandParameter="{Binding .}"
+                                             />
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+ 
+                            <Grid Padding="5,5,5,5" BackgroundColor="{AppThemeBinding 
+                                  Dark={StaticResource WindowsBackgrondColorDark}, 
+                                  Light={StaticResource WindowsBackgroundColor}}">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="70" />
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <Button  
+                                 
+                                Grid.Column="0"    
+                                BackgroundColor="{Binding ProductColor}" 
+                                WidthRequest="1"
+                                HeightRequest="1"
+                                BorderWidth="1"
+                                BorderColor="{Binding ProductColor}"
+                                BorderRadius="50"
+                                Command="{Binding BindingContext.CheckItemCommand, Source={x:Reference ProductList}}"
+                                CommandParameter="{Binding .}"
+
+                                
+                                
+                                />
+
+                                <Label 
+                                Grid.Column="1"
+                                x:Name="ProductLabel" 
+                                Text="{Binding ProductName}" 
+                                Style="{StaticResource BaseLabel}"
+                                TextDecorations="{Binding IsChecked, Converter={StaticResource BoolToObjectConverter}}" 
+                                xct:TouchEffect.Command="{Binding BindingContext.CheckItemCommand, Source={x:Reference ProductList}}"
+                                xct:TouchEffect.CommandParameter="{Binding .}"
+                                xct:TouchEffect.LongPressCommand="{Binding BindingContext.EditCommand, Source={x:Reference ProductList}}"
+                                xct:TouchEffect.LongPressCommandParameter="{Binding .}"
+                                
+                                />
+
+                                <Label
+                                Grid.Column="2"
+                                FontSize="Medium"
+                                Padding="2"
+                                Style="{StaticResource BaseLabel}"
+                                Text="{Binding Unit}"
+                                xct:TouchEffect.Command="{Binding BindingContext.CheckItemCommand, Source={x:Reference ProductList}}"
+                                xct:TouchEffect.CommandParameter="{Binding .}"
+                                xct:TouchEffect.LongPressCommand="{Binding BindingContext.EditCommand, Source={x:Reference ProductList}}"
+                                xct:TouchEffect.LongPressCommandParameter="{Binding .}"
+                                    
+                                    
+                                />
+
+                                <!--<ImageButton 
+                                Source="delete.png"
+                                Scale="0.5"
+                                Command="{Binding Path=BindingContext.RemoveProductCommand, Source={x:Reference ProductList}}"
+                                CommandParameter="{Binding .}"
+                             />.-->
+
+                            </Grid>
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

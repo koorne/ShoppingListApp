@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ShoppingListFinal.ViewModels"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="ShoppingListFinal.Views.EditItemPage"
+             Title="{xct:Translate EditItem}"
+             BackgroundColor="{AppThemeBinding 
+                                  Dark={StaticResource WindowsBackgrondColorDark}, 
+                                  Light={StaticResource WindowsBackgroundColor}}">
+    <ContentPage.Content>
+        <StackLayout Padding="15">
+            <Label Text="{xct:Translate EditPageName}" Style="{StaticResource BaseLabel}"/>
+            <Entry Text="{Binding ProductName}" Style="{StaticResource BaseEntry}"/>
+            <Label Text="{xct:Translate EditPageChecked}" Style="{StaticResource BaseLabel}"/>
+            <CheckBox IsChecked="{Binding IsChecked}" />
+            <Label Text="{xct:Translate EditPageColor}" Style="{StaticResource BaseLabel}"/>
+            <Entry Text="{Binding ProductColor}" Style="{StaticResource BaseEntry}"/>
+            <Label Text="{xct:Translate EditPageUnit}" Style="{StaticResource BaseLabel}"/>
+            <Entry Text="{Binding Unit}" Style="{StaticResource BaseEntry}"/>
+
+            <Button Text="{xct:Translate Save}" Clicked="Button_Clicked" BindingContext="{Binding .}"/>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

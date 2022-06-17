@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShoppingListFinal.Views.SavedItemsPage"
+             xmlns:local="clr-namespace:ShoppingListFinal.ViewModels"  
+             xmlns:model="clr-namespace:ShoppingListFinal.Models"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:conv="clr-namespace:ShoppingListFinal.Converters"
+             Title="{xct:Translate SavedItems}"
+             BackgroundColor="{AppThemeBinding 
+                                  Dark={StaticResource WindowsBackgrondColorDark}, 
+                                  Light={StaticResource WindowsBackgroundColor}}">
+ 
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Padding="4">
+                <Entry
+            Text="{Binding NewProductInputValue}"
+            Placeholder="{xct:Translate ProductInput}"
+            ReturnCommand="{Binding AddCommand}"
+            Style="{StaticResource BaseEntry}"
+            xct:CornerRadiusEffect.CornerRadius="7"
+                />
+            </StackLayout>
+            <CollectionView 
+            x:Name="SavedItemsList" 
+            ItemsSource="{Binding SavedItems}"
+            SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <SwipeView>
+                            <SwipeView.RightItems>
+                                <SwipeItems>
+                                    <SwipeItem  IsDestructive="True"
+                                            IconImageSource="delete.png"
+                                            BackgroundColor="IndianRed"
+                                            Command="{Binding Path=BindingContext.RemoveCommand, Source={x:Reference SavedItemsList}}"
+                                            CommandParameter="{Binding .}"
+                                             />
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+
+                            <Grid Padding="5,5,5,5" BackgroundColor="{AppThemeBinding 
+                                  Dark={StaticResource WindowsBackgrondColorDark}, 
+                                  Light={StaticResource WindowsBackgroundColor}}">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="70" />
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <Button  
+                                Grid.Column="0"    
+                                BackgroundColor="{Binding ProductColor}" 
+                                WidthRequest="1"
+                                HeightRequest="1"
+                                BorderWidth="1"
+                                BorderColor="{Binding ProductColor}"
+                                BorderRadius="50"     
+                                />
+
+                                <Label 
+                                Grid.Column="1"
+                                x:Name="ProductLabel" 
+                                Text="{Binding ProductName}" 
+                                Style="{StaticResource BaseLabel}"
+                                />
+
+
+                            </Grid>
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
