@@ -8,7 +8,6 @@ namespace ShoppingListFinal.Converters
 {
     public class TextDecorationsConverter : IValueConverter
     {
-
         public TextDecorations trueObject = TextDecorations.Strikethrough;
         public TextDecorations falseObject = TextDecorations.None;
 
